@@ -1,0 +1,1 @@
+{"version":3,"file":"app.bundle.js","mappings":"mBAGAA,QAAQC,IAAI,Y","sources":["webpack://to-do-list/./src/index.js"],"sourcesContent":["import './static/reset.css';\nimport './static/style.css';\n\nconsole.log(\"Yo world!\");\n"],"names":["console","log"],"sourceRoot":""}
