@@ -1,3 +1,4 @@
+// To-do 'class'
 const Todo = function(inputObj) {
   // USER-GENERATED PROPERTIES
   let title = inputObj.title;
@@ -10,12 +11,10 @@ const Todo = function(inputObj) {
   let dateCreated = _getDate();
   let completed = false;
 
-  // private function to get current date - currently using built-in 'new Date()' but will need custom solution
   function _getDate() {
     return new Date();
   }
 
-  // function to change targeted to-do instance properties, passing in an object containing 0 or more of the properties
   function edit(editObj) {
     this.title = editObj.title;
     this.description = editObj.description;
@@ -24,7 +23,6 @@ const Todo = function(inputObj) {
     this.notes = editObj.notes;
   }
 
-  // toggles 'completed' property boolean
   function toggleCompleted() {
     this.completed = this.completed ? false : true;
   }
@@ -39,7 +37,7 @@ const Todo = function(inputObj) {
     dateCreated, 
     completed, 
 
-    // public functions
+    // public methods
     edit, 
     toggleCompleted,
   };
