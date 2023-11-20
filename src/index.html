@@ -6,6 +6,117 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello World</h1>
+  <div class="top-container">
+    <div class="logo"></div>
+    <div class="nav grid">
+      <div class="search-section grid">
+        <div class="search-icon"></div>
+        <input type="text" name="search" class="search-bar" placeholder="search"></input>
+      </div>
+      <div class="header-section grid">
+        <a href="#">Notifications</a>
+        <a href="#">Collaborators</a>
+        <a href="#">Account</a>
+        <div class="profile-logo"></div>
+      </div>
+    </div>
+    <div class="sidebar grid">
+      <div class="grid">
+        <h2>PROJECTS</h2>
+        <div class="project-list grid">
+          <div>
+            <div class="project-meta">
+              <p>New Project 1</p>
+              <p class="task-meta">open tasks: 0</p>
+            </div>
+            <button type="button" class="delete-button"></button>
+          </div>
+          <div>
+            <div class="project-meta">
+              <p>New Project 2</p>
+              <p class="task-meta">open tasks: 0</p>
+            </div>
+            <button type="button" class="delete-button"></button>
+          </div>
+          <div>
+            <div class="project-meta">
+              <p>New Project 3</p>
+              <p class="task-meta">open tasks: 0</p>
+            </div>
+            <button type="button" class="delete-button"></button>
+          </div>
+          <div>
+            <div class="project-meta">
+              <p>New Project 4</p>
+              <p class="task-meta">open tasks: 0</p>
+            </div>
+            <button type="button" class="delete-button"></button>
+          </div>
+          <div class="project-add">
+            <p>Add A Project!</p>
+            <div class="add-button"></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <h2>SETTINGS</h2>
+        <div class="setting-list grid">
+          <p>Preferences</p>
+          <p>Configurations</p>
+          <p>Themes</p>
+        </div>
+      </div>
+    </div>
+    <div class="content grid">
+      <div class="todo-meta grid">
+        <div class="titles grid">
+          <input type="text" value="New Project 1" class="project-name">
+          <input type="text" value="This is an example description for this set of to-do's" class="project-description">
+        </div>
+        <div class="add-todo grid">
+          <h3>Add a To-Do!</h3>
+          <div class="add-todo-symbol"></div>
+        </div>
+      </div>
+      <hr>
+      <div class="todo-outer-container grid">
+        <div class="todo-categories grid">
+          <p></p>
+          <p>Title</p>
+          <p>Description</p>
+          <p>Due Date</p>
+          <p>Priority</p>
+          <p></p>
+        </div>
+        <div class="todo-items grid">
+          <div class="todo">
+            <input type="checkbox" class="checkbox">
+            <h3>Grocery List Of Things I Need</h3>
+            <p class="todo-description">Things I need to get before Saturday unless it is really necessary</p>
+            <p>Sat, Nov 1, 2023</p>
+            <div class="priority medium">Medium</div>
+            <div class="delete-todo"></div>
+          </div>
+          <div class="todo">
+            <input type="checkbox" class="checkbox">
+            <h3>Music Video Prep</h3>
+            <p class="todo-description">This is for location scouting</p>
+            <p>Wed, Nov 4, 2023</p>
+            <div class="priority low">Low</div>
+            <div class="delete-todo"></div>
+          </div>
+          <div class="todo completed">
+            <input type="checkbox" class="checkbox" checked>
+            <h3>See my Arhum!</h3>
+            <p class="todo-description">She is sooooooo cute</p>
+            <p>Fri, Nov 17, 2023</p>
+            <div class="priority high">High</div>
+            <div class="delete-todo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer grid"><p>Copyright 2023: Maximilian Aoki</p></div>
+  </div>
 </body>
 </html>

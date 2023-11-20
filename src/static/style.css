@@ -1,16 +1,345 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+  /* color palette */
+  --jet: #282b28ff;
+  --jet-light: rgb(46, 49, 46);
+  --jet-extra-light: rgb(52, 55, 52);
+  --jet-xx-light: rgb(56, 60, 56);
+  --jet-xxx-light: rgb(63, 67, 63);
+  --papaya-whip: #fdf0d5ff;
+  --papaya-dark: rgb(220, 205, 174);
+  --verdigris: #17bebbff;
+  --coral: #fc7753ff;
+  /* document base color */
+  background-color: var(--jet);
 }
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
-body {
-  min-height: 100vh;
-}
+
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;300;500;700&display=swap');
+
 /* for debugging */
 * {
-  outline: 1px solid grey;
+  /* outline: 1px solid grey; */
+}
+
+/* LAYOUT */
+.grid {
+  display: grid;
+}
+.top-container {
+  min-height: 100vh;
+  display: grid;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 300;
+  grid-template: 5rem minmax(40rem, 1fr) 8rem / minmax(16rem, 1fr) minmax(60rem, 4fr);
+  grid-template-areas:
+    "logo     nav"
+    "sidebar  content"
+    "footer   footer"
+  ;
+}
+/* LOGO */
+.logo {
+  grid-area: logo;
+  background-color: var(--jet-light);
+  background-image: url(./images/maxy-do.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 18rem;
+  cursor: pointer;
+}
+
+/* NAV */
+.nav {
+  grid-area: nav;
+  grid-template-columns: 2fr 3fr;
+  gap: 5rem;
+  background-color: var(--jet-extra-light);
+}
+.search-section {
+  grid-template-columns: 3rem 1fr;
+}
+.search-bar {
+  margin: 0.2rem 0;
+  border-radius: 0.5rem;
+  background-color: rgb(189, 189, 189);
+  border: 0.2rem solid var(--jet);
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  color: var(--jet);
+}
+.search-icon {
+  background-image: url(./images/search.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+  cursor: pointer;
+}
+.nav > div {
+  margin: 1rem;
+}
+.header-section {
+  grid-template-columns: 1fr 1fr 1fr 3rem;
+  place-items: center;
+}
+.header-section > a {
+  text-decoration: none;
+  color: var(--papaya-whip);
+  font-weight: 700;
+}
+.profile-logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--jet);
+  background-image: url(./images/avatar.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* SIDEBAR */
+.sidebar {
+  grid-area: sidebar;
+  grid-template-rows: 2fr 1fr;
+  background-color: var(--jet-light);
+}
+.sidebar > div {
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  color: var(--papaya-whip);
+  padding: 1rem;
+}
+.sidebar > div h2 {
+  font-size: 2rem;
+  font-weight: 100;
+}
+.project-list {
+  gap: 0.4rem;
+  grid-auto-rows: 3.5rem;
+  overflow: auto;
+  padding: 0.5rem;
+  background-color: var(--jet);
+  border-radius: 0.5rem;
+}
+/* project div */
+.project-list > div {
+  display: grid;
+  border-left: 0.4rem solid var(--verdigris);
+  color: var(--jet);
+  font-weight: 500;
+  grid-template-columns: 1fr 3.5rem;
+  background-color: var(--papaya-whip);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+/* add project button */
+.project-list > div:last-child {
+  background-color: var(--jet-xx-light);
+  border-left: 0.4rem solid var(--papaya-whip);
+  border-top: 0.1rem dashed var(--papaya-whip);
+  border-right: 0.1rem dashed var(--papaya-whip);
+  border-bottom: 0.1rem dashed var(--papaya-whip);
+  color: white;
+}
+.project-add > p {
+  align-self: center;
+  margin-left: 10%;
+}
+.project-meta {
+  align-self: center;
+  margin-left: 10%;
+}
+.task-meta {
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+.delete-button {
+  background-color: var(--papaya-dark);
+  background-image: url(./images/delete-project.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+}
+.add-button {
+  background-color: var(--jet-xxx-light);
+  background-image: url(./images/add-project.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+}
+.setting-list {
+  background-color: var(--jet);
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  align-items: center;
+  padding: 0.5rem 10%;
+}
+.setting-list > p {
+  cursor: pointer;
+}
+
+/* CONTENT */
+.content {
+  grid-area: content;
+  color: var(--papaya-whip);
+  grid-template: 5rem auto 1fr / 1fr;
+  margin: 1rem 5%;
+}
+.todo-meta {
+  grid-template-columns: 3fr 1fr;
+}
+.titles input {
+  appearance: none;
+  border: none;
+  padding-left: 0.5rem;
+  background-color: var(--jet-light);
+  border-radius: 0.5rem;
+}
+.project-name {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--papaya-whip);
+}
+.project-description {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--papaya-whip);
+  font-weight: 100;
+  margin-top: 0.3rem;
+}
+.add-todo {
+  grid-template-columns: 1fr 3.5rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  height: 3.5rem;
+  align-self: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: var(--jet-xx-light);
+  border-left: 0.4rem solid var(--papaya-whip);
+  border-top: 0.1rem dashed var(--papaya-whip);
+  border-right: 0.1rem dashed var(--papaya-whip);
+  border-bottom: 0.1rem dashed var(--papaya-whip);
+  color: white;
+  font-size: 1.1rem;
+  overflow: hidden;
+}
+.add-todo > h3 {
+  margin-left: 1.5rem;
+}
+.add-todo-symbol {
+  background-color: var(--jet-xxx-light);
+  background-image: url(./images/add-project.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 3.5rem;
+  background-size: 1.6rem;
+}
+.content > hr {
+  width: 100%;
+  border-color: var(--jet-extra-light);
+  color: var(--jet-extra-light);
+}
+.todo-outer-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--jet-light);
+  grid-template-rows: 2rem 1fr;
+}
+.todo-categories {
+  grid-template-columns: 1fr 4fr 6fr 4fr 3fr 1fr;
+  align-items: center;
+  font-size: 1.1rem;
+  border-bottom: 0.1rem solid var(--jet);
+}
+.todo-categories > p {
+  padding-left: 1rem;
+  cursor: pointer;
+}
+.todo-items {
+  margin-top: 0.5rem;
+  grid-auto-rows: 4rem;
+  gap: 0.4rem;
+}
+/* to-do div */
+.todo {
+  display: grid;
+  grid-template-columns: 1fr 4fr 6fr 4fr 3fr 1fr;
+  align-items: center;
+  background-color: var(--papaya-whip);
+  color: var(--jet);
+  border-radius: 0.5rem;
+  border-left: 0.4rem solid var(--coral);
+  cursor: pointer;
+}
+.priority {
+  padding-left: 0.3rem;
+}
+.priority.high {
+  border-left: 0.3rem solid rgb(225, 81, 81);
+}
+.priority.medium {
+  border-left: 0.3rem solid rgb(225, 175, 81);
+}
+.priority.low {
+  border-left: 0.3rem solid rgb(101, 204, 101);
+}
+/* completed todo div */
+.todo.completed {
+  color: rgb(233, 233, 233);
+  background-color: var(--jet-xx-light);
+  border-left: 0.4rem solid var(--verdigris);
+}
+.todo.completed > .delete-todo {
+  background-image: url(./images/delete-project-light.svg);
+}
+/* to-do div categories */
+.todo > * {
+  margin-left: 0.8rem;
+  padding-right: 1rem;
+  font-weight: 500;
+}
+.todo > h3 {
+  font-weight: 700;
+}
+.checkbox {
+  place-self: center;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.delete-todo {
+  background-image: url(./images/delete-project.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  place-content: center;
+  color: white;
+  background-color: var(--coral);
+}
+
+/* GENERAL */
+button {
+  border: none;
+}
+button:hover {
+  cursor: pointer;
 }
