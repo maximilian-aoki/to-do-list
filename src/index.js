@@ -131,6 +131,7 @@ function renderContent() {
 // to-do methods
 function deleteItem(index) {
   application.currentProject.removeItem(index);
+  renderProjects();
   renderContent();
 }
 
