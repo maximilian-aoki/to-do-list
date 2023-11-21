@@ -343,3 +343,37 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+/* MODAL */
+dialog {
+  border: 0.4rem solid var(--caribbean-current);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: var(--dark-slate-gray-variation);
+}
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+  background-color: hsla(0, 0%, 0%, 0.2);
+}
+form {
+  position: relative;
+}
+form > div {
+  display: grid;
+}
+dialog label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+dialog input {
+  margin-bottom: 0.5rem;
+  height: 2rem;
+  border: 1px solid grey;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+}
+textarea {
+  resize: none;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+}

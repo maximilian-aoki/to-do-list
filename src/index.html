@@ -24,7 +24,7 @@
       <div class="grid">
         <h2>PROJECTS</h2>
         <div class="project-list grid">
-          <div>
+          <!-- <div>
             <div class="project-meta">
               <p>New Project 1</p>
               <p class="task-meta">open tasks: 0</p>
@@ -55,7 +55,7 @@
           <div class="project-add">
             <p>Add A Project!</p>
             <div class="add-button"></div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="grid">
@@ -70,8 +70,8 @@
     <div class="content grid">
       <div class="todo-meta grid">
         <div class="titles grid">
-          <input type="text" value="New Project 1" class="project-name">
-          <input type="text" value="This is an example description for this set of to-do's" class="project-description">
+          <input type="text" class="project-name" placeholder="Untitled Project" maxlength="20">
+          <input type="text" class="project-description" placeholder="Add a project description" maxlength="40">
         </div>
         <div class="add-todo grid">
           <h3>Add a To-Do!</h3>
@@ -88,8 +88,40 @@
           <p>Priority</p>
           <p></p>
         </div>
+        <dialog>
+          <h3 class="dialog-header">Add New To-Do</h3>
+          <hr>
+          <form method="dialog">
+            <div>
+              <label for="title">Title:</label>
+              <input type="text" id="title" placeholder="A New To-Do" required>
+            </div>
+            <div>
+              <label for="description">Description:</label>
+              <input type="text" id="description" placeholder="Write a longer description for your to-do">
+            </div>
+            <div>
+              <label for="due-date">Due Date:</label>
+              <input type="date" id="due-date">
+            </div>
+            <div>
+              <label for="priority">Priority:</label>
+              <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div>
+              <label for="notes">Notes:</label>
+              <textarea id="notes" cols="30" rows="10" placeholder="Add extra notes here"></textarea>
+            </div>
+            <button type="submit" class="submit-todo">Add To-Do</button>
+            <button type="reset" class="close-modal">Cancel</button>
+          </form>
+        </dialog>
         <div class="todo-items grid">
-          <div class="todo">
+          <!-- <div class="todo">
             <input type="checkbox" class="checkbox">
             <h3>Grocery List Of Things I Need</h3>
             <p class="todo-description">Things I need to get before Saturday unless it is really necessary</p>
@@ -112,7 +144,7 @@
             <p>Fri, Nov 17, 2023</p>
             <div class="priority high">High</div>
             <div class="delete-todo"></div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

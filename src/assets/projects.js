@@ -11,6 +11,9 @@ const Project = function() {
   // ITERABLE - lists all to-dos for the project instance
   let items = [];
 
+  // STATE
+  let currentItem = undefined;
+
   function _getDate() {
     return new Date();
   }
