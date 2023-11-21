@@ -59,13 +59,15 @@ let TodosUI = (function() {
       checkedStatus = 'checked';
     }
 
+    let priorityValue = item.priority.toLowerCase();
+
     newItem.innerHTML = 
     `
     <input type="checkbox" class="checkbox" ${checkedStatus}>
     <h3>${item.title}</h3>
     <p class="todo-description">${item.description}</p>
     <p>${item.dueDate}</p>
-    <div class="priority low">${item.priority}</div>
+    <div class="priority ${priorityValue}">${item.priority}</div>
     <div class="delete-todo"></div>
     `
     ;

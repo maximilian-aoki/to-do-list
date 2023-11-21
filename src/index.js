@@ -30,24 +30,24 @@ const Application = function() {
 let testObj1 = {
   title: "Groceries",
   description: "This is for groceries",
-  dueDate: 2,
-  priority: 1,
+  dueDate: '2023-11-25',
+  priority: 'High',
   notes: "There will be more things to get at corner store",
 }
 
 let testObj2 = {
   title: "Shopping",
   description: "This is for shopping",
-  dueDate: 0,
-  priority: 2,
+  dueDate: '2023-11-24',
+  priority: 'Low',
   notes: "Get gas on way back!",
 }
 
 let testObj3 = {
   title: "New Video",
   description: "Make a new vid",
-  dueDate: 1,
-  priority: 0,
+  dueDate: '2023-11-29',
+  priority: 'High',
   notes: "Use Adobe",
 }
 
@@ -87,8 +87,9 @@ Events.on('renderContent', renderContent);
 
 // custom event handling - to-dos
 Events.on('deleteItem', deleteItem);
-Events.on('openModal', openModal);
 Events.on('toggleItemStatus', toggleItemStatus);
+Events.on('openModal', openModal);
+Events.on('submitModal', submitModal);
 
 // master app methods
 function addProject() {
@@ -135,12 +136,23 @@ function deleteItem(index) {
 
 function toggleItemStatus(index) {
   application.currentProject.items[index].toggleCompleted();
+  renderProjects();
   renderContent();
 }
 
 function openModal(index) {
   application.currentProject.currentItem = application.currentProject.items[index];
   dialogUI.createDialog(application.currentProject.currentItem);
+}
+
+function submitModal(itemObj) {
+  if (application.currentProject.currentItem) {
+    application.currentProject.currentItem.edit(itemObj);
+  } else {
+    application.currentProject.addItem(itemObj);
+  }
+  renderProjects();
+  renderContent();
 }
 
 // INIT TESTING

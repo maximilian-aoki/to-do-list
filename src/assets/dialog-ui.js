@@ -24,14 +24,15 @@ let dialogUI = (function() {
   // methods
   function createDialog(item) {
     if (item) {
-      dialogHeader.innerText = `To-Do: ${item.title}`;
+      dialogHeader.innerText = item.title;
       submitButton.innerText = 'Save';
 
       titleInput.value = item.title;
       descriptionInput.value = item.description;
-      // add rest
+      dueInput.value = item.dueDate;
+      priorityInput.value = item.priority;
+      notesInput.value = item.notes;
     } else {
-      // show the ADD modal options
       dialogHeader.innerText = 'Add New To-Do';
       submitButton.innerText = 'Add To-Do';
     }
@@ -51,7 +52,16 @@ let dialogUI = (function() {
   }
 
   function submitDialog() {
+    let itemObj = {
+      title: titleInput.value.trim(),
+      description: descriptionInput.value.trim(),
+      dueDate: dueInput.value.trim(),
+      priority: priorityInput.value.trim(),
+      notes: notesInput.value.trim(),
+    }
 
+    Events.emit('submitModal', itemObj);
+    closeDialog();
   }
 
   function closeDialog() {

@@ -30,18 +30,30 @@ let ProjectsUI = (function() {
     newProject.setAttribute('data-index', index);
 
     const projectTitle = project.title ? project.title : 'Untitled Project';
+    const openTasks = getOpenTasks(project);
 
     newProject.innerHTML = 
     `
     <div class="project-meta">
       <p>${projectTitle}</p>
-      <p class="task-meta">open tasks: 0</p>
+      <p class="task-meta">open tasks: ${openTasks}</p>
     </div>
     <button type="button" class="delete-button"></button>
     `
     ;
 
     return newProject;
+  }
+
+  function getOpenTasks(project) {
+    let i = 0;
+    for (let item of project.items) {
+      if (item.completed === false) {
+        i++;
+      }
+    }
+
+    return i;
   }
 
   function createAddProject() {

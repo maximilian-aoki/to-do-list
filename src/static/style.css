@@ -10,6 +10,7 @@ html {
   --papaya-whip: #fdf0d5ff;
   --papaya-dark: rgb(220, 205, 174);
   --verdigris: #17bebbff;
+  --verdigris-button: rgb(25, 172, 169);
   --coral: #fc7753ff;
   /* document base color */
   background-color: var(--jet);
@@ -346,14 +347,21 @@ button:hover {
 
 /* MODAL */
 dialog {
-  border: 0.4rem solid var(--caribbean-current);
   border-radius: 1rem;
-  padding: 2rem;
-  color: var(--dark-slate-gray-variation);
+  padding: 3rem;
+  color: var(--jet);
+  box-shadow: 3px 3px 15px 3px #000000;
 }
 dialog::backdrop {
   backdrop-filter: blur(3px);
   background-color: hsla(0, 0%, 0%, 0.2);
+}
+dialog > h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+dialog > hr {
+  margin-bottom: 0.5rem;
 }
 form {
   position: relative;
@@ -361,19 +369,49 @@ form {
 form > div {
   display: grid;
 }
-dialog label {
-  font-weight: 600;
-  margin-bottom: 0.2rem;
+.form-buttons {
+  grid-template: 2.5rem / 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-dialog input {
+.form-buttons > button {
+  border-radius: 0.3rem;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: var(--verdigris-button);
+  color: white;
+}
+.form-buttons > .close-modal {
+  background-color: var(--jet-xxx-light);
+}
+dialog label {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  margin-top: 0.4rem;
+}
+dialog input,
+dialog select {
   margin-bottom: 0.5rem;
   height: 2rem;
   border: 1px solid grey;
   border-radius: 0.2rem;
   padding: 0.3rem;
 }
+dialog input[type='date'],
+dialog select {
+  cursor: pointer;
+}
 textarea {
   resize: none;
   padding: 0.3rem;
   border-radius: 0.2rem;
+}
+dialog input,
+dialog select,
+dialog textarea {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  padding-left: 0.5rem;
 }
