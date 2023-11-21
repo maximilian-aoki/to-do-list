@@ -12,6 +12,7 @@ html {
   --verdigris: #17bebbff;
   --verdigris-button: rgb(25, 172, 169);
   --coral: #fc7753ff;
+  --coral-light: rgb(255, 211, 198);
   /* document base color */
   background-color: var(--jet);
 }
@@ -133,7 +134,7 @@ html {
 /* project div */
 .project-list > div {
   display: grid;
-  border-left: 0.4rem solid var(--verdigris);
+  border-left: 0.4rem solid var(--coral);
   color: var(--jet);
   font-weight: 500;
   grid-template-columns: 1fr 3.5rem;
@@ -379,11 +380,13 @@ form > div {
   font-family: 'Public Sans', sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
-  background-color: var(--verdigris-button);
-  color: white;
+  background-color: var(--papaya-whip);
+  color: var(--jet);
+  box-shadow: 3px 4px 9px 0px rgba(0,0,0,0.73);
 }
 .form-buttons > .close-modal {
   background-color: var(--jet-xxx-light);
+  color: white;
 }
 dialog label {
   font-weight: 500;
@@ -414,4 +417,25 @@ dialog textarea {
   font-weight: 300;
   font-size: 0.9rem;
   padding-left: 0.5rem;
+}
+
+/* BONUS UI */
+.project-list > div:hover {
+  border-left: 0.6rem solid var(--verdigris);
+}
+.project-list > div:last-child:hover {
+  border-left: 0.6rem solid var(--verdigris);
+}
+.add-todo:hover {
+  border-left: 0.6rem solid var(--verdigris);
+}
+.todo:hover {
+  border-left: 0.6rem solid var(--verdigris);
+}
+.submit-todo:hover {
+  color: white;
+  background-color: var(--verdigris-button);
+}
+.close-modal:hover {
+  background-color: var(--jet-light);
 }
