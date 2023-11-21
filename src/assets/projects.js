@@ -18,27 +18,6 @@ const Project = function() {
     return new Date();
   }
 
-  function edit(editObj) {
-    this.title = editObj.title;
-    this.description = editObj.description;
-  }
-
-  function addItem(newObj) {
-    this.items.push(Todo(newObj));
-  }
-
-  function removeItem(index) {
-    this.items.splice(index, 1);
-  }
-
-  function sort(property, descending = true) {
-    if (descending) {
-      this.items = this.items.sort((a, b) => (a[property] > b[property]) ? -1 : 1);
-    } else {
-      this.items = this.items.sort((a, b) => (a[property] > b[property]) ? 1 : -1);
-    }
-  }
-
   return {
     // properties
     title,
@@ -47,13 +26,25 @@ const Project = function() {
 
     // iterable property
     items,
-
-    // public methods
-    edit,
-    addItem,
-    removeItem,
-    sort
+    currentItem,
   }
 };
 
-export { Project };
+function addItemPROJ(project, newObj) {
+  project.items.push(Todo(newObj));
+}
+
+function removeItemPROJ(project, index) {
+  project.items.splice(index, 1);
+}
+
+// future feature
+function sortPROJ(project, property, descending = true) {
+  if (descending) {
+    project.items = project.items.sort((a, b) => (a[property] > b[property]) ? -1 : 1);
+  } else {
+    project.items = project.items.sort((a, b) => (a[property] > b[property]) ? 1 : -1);
+  }
+}
+
+export { Project, addItemPROJ, removeItemPROJ };

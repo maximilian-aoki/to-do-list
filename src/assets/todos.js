@@ -15,32 +15,19 @@ const Todo = function(inputObj) {
     return new Date();
   }
 
-  function edit(editObj) {
-    this.title = editObj.title;
-    this.description = editObj.description;
-    this.dueDate = editObj.dueDate;
-    this.priority = editObj.priority;
-    this.notes = editObj.notes;
-  }
-
-  function toggleCompleted() {
-    this.completed = this.completed ? false : true;
-  }
-
-  return { 
-    // properties
-    title, 
-    description, 
-    dueDate, 
-    priority, 
-    notes, 
-    dateCreated, 
-    completed, 
-
-    // public methods
-    edit, 
-    toggleCompleted,
-  };
+  return { title, description, dueDate, priority, notes, dateCreated, completed, };
 };
 
-export { Todo };
+function editTODO(item, editObj) {
+  item.title = editObj.title;
+  item.description = editObj.description;
+  item.dueDate = editObj.dueDate;
+  item.priority = editObj.priority;
+  item.notes = editObj.notes;
+}
+
+function toggleCompletedTODO(item) {
+  item.completed = item.completed ? false : true;
+}
+
+export { Todo, editTODO, toggleCompletedTODO };
