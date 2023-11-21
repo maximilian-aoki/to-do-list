@@ -22,58 +22,8 @@ const Application = function() {
     this.projects.splice(index, 1);
   }
 
-  return { projects, addProject, removeProject };
+  return { projects, currentProject, addProject, removeProject };
 };
-
-// TEST VALUES //
-
-let testObj1 = {
-  title: "Groceries",
-  description: "This is for groceries",
-  dueDate: '2023-11-25',
-  priority: 'High',
-  notes: "There will be more things to get at corner store",
-}
-
-let testObj2 = {
-  title: "Shopping",
-  description: "This is for shopping",
-  dueDate: '2023-11-24',
-  priority: 'Low',
-  notes: "Get gas on way back!",
-}
-
-let testObj3 = {
-  title: "New Video",
-  description: "Make a new vid",
-  dueDate: '2023-11-29',
-  priority: 'High',
-  notes: "Use Adobe",
-}
-
-let testProj1 = {
-  title: "Day-To-Day",
-  description: "day to day activities"
-}
-
-let testProj2 = {
-  title: "Week-to-Week",
-  description: "week to week activities"
-}
-
-
-// init program - later get this from local storage!
-let application = Application();
-application.addProject();
-application.addProject();
-
-application.projects[0].edit(testProj1);
-application.projects[1].edit(testProj2);
-
-application.projects[0].addItem(testObj1);
-application.projects[0].addItem(testObj2);
-application.projects[1].addItem(testObj3);
-
 
 // custom event handling - master app
 Events.on('addProject', addProject);
@@ -156,6 +106,75 @@ function submitModal(itemObj) {
   renderContent();
 }
 
+// INIT PROGRAM //
+let application;
+function initializeApp() {
+  if (localStorage.getItem('app')) {
+    application = JSON.parse(localStorage.getItem('app'));
+  } else {
+    application = Application();
+    application.addProject();
+    application.currentProject = application.projects[0];
+  }
+  renderProjects();
+  renderContent();
+}
+
+initializeApp();
+
+
+
+
+// TEST VALUES //
+
+// let testObj1 = {
+//   title: "Groceries",
+//   description: "This is for groceries",
+//   dueDate: '2023-11-25',
+//   priority: 'High',
+//   notes: "There will be more things to get at corner store",
+// }
+
+// let testObj2 = {
+//   title: "Shopping",
+//   description: "This is for shopping",
+//   dueDate: '2023-11-24',
+//   priority: 'Low',
+//   notes: "Get gas on way back!",
+// }
+
+// let testObj3 = {
+//   title: "New Video",
+//   description: "Make a new vid",
+//   dueDate: '2023-11-29',
+//   priority: 'High',
+//   notes: "Use Adobe",
+// }
+
+// let testProj1 = {
+//   title: "Day-To-Day",
+//   description: "day to day activities"
+// }
+
+// let testProj2 = {
+//   title: "Week-to-Week",
+//   description: "week to week activities"
+// }
+
+
+// init program - later get this from local storage!
+// let application = Application();
+// application.addProject();
+// application.addProject();
+
+// application.projects[0].edit(testProj1);
+// application.projects[1].edit(testProj2);
+
+// application.projects[0].addItem(testObj1);
+// application.projects[0].addItem(testObj2);
+// application.projects[1].addItem(testObj3);
+
+
 // INIT TESTING
-Events.emit('renderProjects', application);
-Events.emit('renderContent', application.currentProject);
+// Events.emit('renderProjects', application);
+// Events.emit('renderContent', application.currentProject);
