@@ -1,3 +1,52 @@
+@import url(https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;300;500;700&display=swap);
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -23,7 +72,6 @@ html {
 }
 
 /* font */
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;300;500;700&display=swap');
 
 /* for debugging */
 * {
@@ -50,7 +98,7 @@ html {
 .logo {
   grid-area: logo;
   background-color: var(--jet-light);
-  background-image: url(./images/maxy-do.svg);
+  background-image: url(701cc297bced56d4526b.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 18rem;
@@ -77,7 +125,7 @@ html {
   color: var(--jet);
 }
 .search-icon {
-  background-image: url(./images/search.svg);
+  background-image: url(4c17babee1a87292ef55.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.6rem;
@@ -100,7 +148,7 @@ html {
   height: 3rem;
   border-radius: 50%;
   border: 0.2rem solid var(--jet);
-  background-image: url(./images/avatar.svg);
+  background-image: url(8bacc76f6872a9558abb.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -167,14 +215,14 @@ html {
 }
 .delete-button {
   background-color: var(--papaya-dark);
-  background-image: url(./images/delete-project.svg);
+  background-image: url(5cb1e7a768ed7fd8d06c.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.6rem;
 }
 .add-button {
   background-color: var(--jet-xxx-light);
-  background-image: url(./images/add-project.svg);
+  background-image: url(03a96dc0d6a4d3e8a994.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.6rem;
@@ -241,7 +289,7 @@ html {
 }
 .add-todo-symbol {
   background-color: var(--jet-xxx-light);
-  background-image: url(./images/add-project.svg);
+  background-image: url(03a96dc0d6a4d3e8a994.svg);
   background-position: center;
   background-repeat: no-repeat;
   height: 3.5rem;
@@ -303,7 +351,7 @@ html {
   border-left: 0.4rem solid var(--verdigris);
 }
 .todo.completed > .delete-todo {
-  background-image: url(./images/delete-project-light.svg);
+  background-image: url(5b07e48649a6fbf0e217.svg);
 }
 /* to-do div categories */
 .todo > * {
@@ -321,7 +369,7 @@ html {
   height: 1.5rem;
 }
 .delete-todo {
-  background-image: url(./images/delete-project.svg);
+  background-image: url(5cb1e7a768ed7fd8d06c.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.6rem;
@@ -439,3 +487,5 @@ dialog textarea {
 .close-modal:hover {
   background-color: var(--jet-light);
 }
+
+/*# sourceMappingURL=app.css.map*/
