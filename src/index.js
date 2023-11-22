@@ -109,9 +109,11 @@ function submitModal(itemObj) {
 
 // INIT PROGRAM //
 let application;
+
 function initializeApp() {
   if (localStorage.getItem('app')) {
     application = JSON.parse(localStorage.getItem('app'));
+    application.currentProject = getCurrentProject();
   } else {
     application = Application();
     application.projects.push(Project());
@@ -119,6 +121,14 @@ function initializeApp() {
   }
   renderProjects();
   renderContent();
+}
+
+function getCurrentProject() {
+  for (let project of application.projects) {
+    if (project.dateCreated === application.currentProject.dateCreated) {
+      return project;
+    }
+  }
 }
 
 initializeApp();
